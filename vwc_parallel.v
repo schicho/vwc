@@ -10,12 +10,12 @@ import runtime
 
 const (
 	buffer_size     = 16 * 1024
-	new_line        = '\n'[0]
-	space           = ' '[0]
-	tab             = '\t'[0]
-	carriage_return = '\r'[0]
-	vertical_tab    = '\v'[0]
-	form_feed       = '\f'[0]
+	new_line        = `\n`
+	space           = ` `
+	tab             = `\t`
+	carriage_return = `\r`
+	vertical_tab    = `\v`
+	form_feed       = `\f`
 )
 
 struct FileChunk {
