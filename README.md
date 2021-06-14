@@ -18,6 +18,10 @@ I am going to compare the results using GNU time, as done by others in their art
 
 For better comparison with the Go code, I will not rely on the stats given in the original article, but will compile the Go code myself using Go 1.16.
 
+In [#2](https://github.com/schicho/vwc/issues/2) it was noted that as my implementation only supports ASCII, I should run GNU wc with the ASCII locale `LANG=C` to give a more fair and accurate comparison.
+Setting the locale tells WC that it only needs to expect ASCII chars, thus making the program run a bit faster.
+The benchmarked times of GNU wc have been updated using `LANG=C time wc text.txt` to set the locale.
+
 All benchmarks will be run on my system with the following specs:
 - Intel Core i5-8265U @ 1.60 GHz @ 4 cores, 8 threads
 - 8 GB DDR4 RAM @ 2667 MHz
@@ -141,10 +145,10 @@ Without the production flag, the V compiler is blazingly fast, but the builds ar
 
 | Program | File Size | Time      | Memory     |
 | ---     | ---       | ---       | ---        |
-| GNU wc  | 100 MB    |   0.60s   |  2268 KB   |
+| GNU wc  | 100 MB    |   0.40s   |  2268 KB   |
 | Go wc   | 100 MB    |   0.29s   |  1588 KB   |
 | V wc    | 100 MB    |   0.30s   |  1424 KB   |
-| GNU wc  | 1 GB      |   6.52s   |  2264 KB   |
+| GNU wc  | 1 GB      |   4.39s   |  2264 KB   |
 | Go wc   | 1 GB      |   3.26s   |  1596 KB   |
 | V wc    | 1 GB      |   3.17s   |  1476 KB   |
 
@@ -267,10 +271,10 @@ Comparing the different implementations on the same files as before yields aston
 
 | Program        | File Size | Time      | Memory     |
 | ---            | ---       | ---       | ---        |
-| GNU wc         | 100 MB    |   0.60s   |  2268 KB   |
+| GNU wc         | 100 MB    |   0.40s   |  2268 KB   |
 | GO wc parallel | 100 MB    |   0.08s   |  1944 KB   |
 | V wc parallel  | 100 MB    |   0.09s   |  2036 KB   |
-| GNU wc         | 1 GB      |   6.52s   |  2264 KB   |
+| GNU wc         | 1 GB      |   4.39s   |  2264 KB   |
 | GO wc parallel | 1 GB      |   0.71s   |  1976 KB   |
 | V wc parallel  | 1 GB      |   0.88s   |  2032 KB   |
 
