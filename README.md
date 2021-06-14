@@ -1,6 +1,6 @@
 # vwc
 
-Beating C with 100 Lines of V.
+Beating C with 100 Lines of [V](https://vlang.io).
 A simple wc (word count) clone, designed to be faster than C.
 
 This is my late addition to a trend from late 2019, about trying to write a simple wc clone in a few lines of code and trying to beat its performance.
@@ -281,4 +281,3 @@ We can tell that Go is overall minimally faster than V and also consumes a bit l
 V itself is transpiled to C for optimized builds. You could almost say I compared C to C, but with one of the C implementations being almost like Go.
 
 Overall it was very interesting to see the comparison, not only between C and V, but also Go and V. Using the same algorithms and functions obviously resulted in very similar results, but smaller differences could still be seen. Like in the other articles, this is not meant to be a V is better than C article. I wrote a very simplified version of the complete GNU wc. The only goal was to be faster, but still have the same results as GNU wc on pure ASCII text.
-
